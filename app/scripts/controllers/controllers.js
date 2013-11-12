@@ -1,4 +1,3 @@
-
 angular.module('YHA.controllers')
     .controller('IntrospectionController', function($rootScope, $scope, YHARecords) {
         var promise = YHARecords.introspection();
