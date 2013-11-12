@@ -1,0 +1,588 @@
+html, body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+body {
+  background-color: #000;
+  font-family: 'ubuntu', sans-serif;
+}
+
+#main-content-container {
+  background-color: #292929;
+  border-left: solid #474747 1px;
+  border-right: solid #474747 1px;
+}
+
+#sidebar {
+  border: solid #000 1px;
+  background-color: #1F1F1F;
+  padding: 6px;
+}
+
+#view {
+  border: solid #000 1px;
+  background-color: #1F1F1F;
+  padding: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+
+.view-record-container {
+  border: 1px solid #444;
+  background-color: #1f1f1f;
+}
+
+.fieldset {
+  padding: 6px 10px 10px 10px;
+  margin-bottom: 15px;
+  background-color: #373737;
+}
+
+.no-bottom-border {
+    border-bottom: none !important;
+}
+
+.legend {
+  color: #dab44d;
+  padding-bottom: 2px;
+}
+
+.fieldset > div {
+  height: 32px;
+  position: relative;
+  border-bottom: 1px solid #555;
+}
+
+.fieldset > div.odd {
+  background-color: #333;
+}
+
+.fieldset > div > .field-label {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 200px;
+  font-size: 13px;
+  line-height: 32px;
+  height: 32px;
+  color: #aaa;
+}
+
+.fieldset > div > .field-value {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  font-size: 13px;
+  line-height: 32px;
+  height: 32px;
+  color: #fff;
+}
+
+.fieldset > div.address {
+  height: 64px;
+  position: relative;
+  border-bottom: 1px solid #555;
+}
+
+.fieldset > div.notes {
+    font-size: 13px;
+    height: 256px;
+    position: relative;
+    border-bottom: 1px solid #555;
+    color: #fff;
+    overflow-y: scroll;
+}
+
+.fieldset > div.form-notes {
+    font-size: 13px;
+    height: 256px;
+    position: relative;
+    border-bottom: 1px solid #555;
+}
+
+.fieldset > div.form-notes textarea {
+    height: 250px;
+}
+
+.fieldset > div.form {
+  height: 40px;
+  position: relative;
+  border-bottom: 1px solid #555;
+}
+
+.partial-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #36accc;
+  text-transform: uppercase;
+  line-height: 26px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.partial-title-queue {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #36accc;
+  text-transform: uppercase;
+  line-height: 26px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.header-buttons {
+  margin-top: 5px;
+}
+
+.partial-title-label {
+  color: #dab44d;
+}
+
+.fieldset > div.form > .field-form-value {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.queue-field-cell .sm-date {
+    font-size: 0.8em;
+}
+
+.bad-address {
+    color: #ff0000;
+}
+
+/* PAGINATION */
+/*********************************/
+.pagination > li > a {
+
+}
+
+ul.pagination {
+    height: 28px;
+    padding: 0;
+    margin: 0;
+}
+/*********************************/
+/* PAGINATION */
+
+/* QUEUE */
+/*********************************/
+.queue-footer {
+    background-color: #111;
+    color: #FFFFFF;
+    text-align: right;
+    padding: 4px 4px 4px 4px;
+}
+.queue-odd-row {
+    background-color: #2F3539;
+}
+.queue-even-row {
+    background-color: #1f1f1f;
+}
+.queue-container {
+    color: #999;
+    overflow-y: auto;
+    height: 600px;
+}
+.queue-header-cell {
+    float: left;
+    font-size: 1.0em;
+    padding-left: 4px;
+}
+.sm-header-cell {
+    float: left;
+    font-size: 0.9em;
+    padding-left: 4px;
+}
+.queue-field-cell {
+    float: left;
+    border-left: solid #555 1px;
+    border-bottom: solid #555 1px;
+    padding-left: 4px;
+    font-size: 0.8em;
+    min-height: 65px;
+}
+.sm-field-cell {
+    float: left;
+    border-left: solid #555 1px;
+    border-bottom: solid #555 1px;
+    padding-left: 4px;
+    padding-top: 4px;
+    font-size: 0.8em;
+    min-height: 30px;
+}
+.row .queue-field-cell:last-child {
+    border-left: solid #555 1px;
+    border-right: none;
+}
+.row .queue-field-cell:first-child {
+    border-left: none;
+}
+.queue-container .queue-row:last-child .queue-field-cell {
+    border-bottom: none;
+}
+.queue-header {
+    background-color: #111;
+    font-size: 1.0em;
+    color: #dab44d;
+    margin: 0;
+    padding: 0;
+}
+.queue-row:hover {
+  background-color: #000;
+  cursor: pointer;
+  /*border: solid #dab44d 1px;*/
+}
+/*********************************/
+/* QUEUE */
+
+/* SIDEBAR FIELDSETS AND LEGENDS */
+/*********************************/
+.fieldset-sidebar-canned-query {
+  padding: 6px 10px 10px 10px;
+  margin-bottom: 15px;
+  background-color: #373737;
+}
+
+.legend-sidebar-canned-query {
+  color: #dab44d;
+  padding-bottom: 1px;
+}
+
+.fieldset-sidebar-canned-query > div {
+  height: 24px;
+  position: relative;
+  border-bottom: 1px solid #555;
+}
+
+.fieldset-sidebar-form {
+  color: #fff;
+  padding: 6px 10px 10px 10px;
+  margin-bottom: 15px;
+  background-color: #373737;
+}
+
+.legend-sidebar-form {
+  color: #dab44d;
+  padding-bottom: 7px;
+}
+
+.fieldset-sidebar-form > div {
+  height: 24px;
+  position: relative;
+  border-bottom: 1px solid #555;
+}
+
+.fieldset-sidebar-form > label {
+  font-size: 0.8em;
+}
+.fieldset-sidebar-form > form > input {
+    margin-bottom: 10px;
+}
+.sidebar-search-label {
+    font-size: 0.8em;
+}
+/*********************************/
+/* SIDEBAR FIELDSETS AND LEGENDS */
+
+/* DASHBOARD STYLES */
+/********************/
+.db-cell {
+  color: #fff;
+  background-color: #373737;
+  border: solid #777 1px;
+}
+.db-cell-lg {
+  height: 200px;
+}
+.db-cell-sm {
+  height: 130px;
+}
+.number {
+  font-family: 'Aldrich', sans-serif;
+  text-align: center;
+}
+.number-xlg {
+  font-size: 56px;
+}
+.number-lg {
+    font-size: 48px;
+}
+.number-md {
+    font-size: 38px;
+}
+.number-ms {
+    font-size: 30px;
+}
+.number-sm {
+    font-size: 24px;
+}
+.number-tiny {
+    font-size: 18px;
+}
+.number-xsm {
+    font-size: 12px;
+}
+.number-today {
+  color: #8dc13f;
+}
+.number-week {
+  color: #d55804;
+}
+.number-month {
+  color: #763a9f;
+}
+.number-year {
+  color: #36accc;
+}
+.number-total {
+  color: #dab44d;
+}
+.number-overdue {
+  color: red;
+}
+.number-positive {
+  color: #adff2f;
+}
+.number-negative {
+    color: red;
+}
+.db-label-sm {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  text-transform: uppercase;
+}
+.db-label {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.db-label-lg {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.db-label-today {
+  color: #8dc13f;
+}
+.db-label-week {
+  color: #d55804;
+}
+.db-label-month {
+  color: #763a9f;
+}
+.db-label-year {
+  color: #36accc;
+}
+.db-label-total {
+  color: #dab44d;
+}
+.db-label-overdue {
+  color: red;
+}
+.members-total-label {
+  color: #999;
+}
+.db-btn-group {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+}
+/********************/
+/* DASHBOARD STYLES */
+
+/* HEADER/FOOTER STYLES */
+/************************/
+.brand-logo {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 100px;
+}
+.navbar-default .navbar-brand {
+  color: #dab44d;
+  font-family: 'Aldrich', sans-serif;
+  text-transform: uppercase;
+  font-size: 36px;
+}
+.navbar-default .navbar-brand:hover {
+  color: #36accc;
+}
+.dropdown-menu {
+  background-color: #1F1F1F;
+}
+.dropdown-menu > li > a {
+  color: #36accc;
+}
+.dropdown-header {
+  color: #dab44d;
+}
+.dropdown-menu .divider {
+  background-color: #333;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #428bca;
+  background-color: #1F1F1F;
+}
+.navbar-default {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+.navbar-dark {
+  background-color: #1F1F1F;
+  border-color: #000;
+  color: #428bca;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #dab44d;
+  font-family: 'Aldrich', sans-serif;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #36accc;
+}
+.container .credit {
+  margin: 20px 0;
+}
+.footer {
+  height: 60px;
+}
+.footer-default {
+  height: 60px;
+  border-top: solid #000 1px;
+  background-color: #1F1F1F;
+}
+.footer-dark {
+  height: 60px;
+  border-top: solid #000 1px;
+  background-color: #1F1F1F;
+}
+.footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+/************************/
+/* HEADER/FOOTER STYLES */
+
+/* DATEPICKER STYLES */
+/******************************/
+.datepicker-popup {
+    background-color: #222;
+    border: solid #999 1px;
+    padding: 5px;
+}
+.datepicker-ctrl-buttons {
+    padding: 0 4px 4px 4px;
+    font-family: Aldrich, sans-serif;
+}
+.datepicker-text-labels {
+    color: #dab44d;
+    text-align: center;
+    padding: 8px 2px 2px 2px;
+    font-family: Aldrich, sans-serif;
+    font-size: 12px;
+}
+.datepicker-date-button {
+    font-family: Aldrich, sans-serif;
+    font-size: 10px;
+}
+.datepicker-year-button {
+    font-family: Aldrich, sans-serif;
+}
+.calendar-button-spacer {
+    margin-left: 2px;
+}
+/************************/
+/* DATEPICKER STYLES */
+
+/* FORM VALIDATION STYLES */
+/************************/
+input.ng-invalid {
+    border: solid 3px #d9534f;
+}
+input.ng-valid {
+    /*border: 1px solid green;*/
+}
+.validation-errors {
+    display: block;
+    padding: 0.375em 0.25em;
+    margin: .2em .5em .5em .5em;
+    font-size: 0.75em;
+    font-weight: bold;
+    background: #d9534f;
+    border: solid #fff 1px;
+    color: #fff;
+}
+.about-form {
+    color: #ddd;
+}
+.form-errors {
+    font-size: 12px;
+}
+/************************/
+/* FORM VALIDATION STYLES */
+
+/* VALIDATION DROPDOWN STYLES */
+/************************/
+.validation-dropdown {
+    display: inline;
+}
+.validation-box {
+    padding: 0.375em 0.25em;
+    margin: .2em .5em .5em .5em;
+    font-size: 0.75em;
+    font-weight: bold;
+    background: #d9534f;
+    border: solid #fff 1px;
+    color: #fff;
+}
+/************************/
+/* VALIDATION DROPDOWN STYLES */
+
+/* DEV TROUBLESHOOTING STYLES */
+/******************************/
+.dev-border-black {
+  border: solid black 1px;
+}
+
+.dev-border-red {
+  border: solid #d9534f 1px;
+}
+
+.dev-border-green {
+  border: solid green 1px;
+}
+
+.dev-border-blue {
+  border: solid blue 1px;
+}
+/******************************/
+/* DEV TROUBLESHOOTING STYLES */

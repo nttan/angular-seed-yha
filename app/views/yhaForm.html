@@ -1,0 +1,135 @@
+<form name="yhaForm" novalidate ng-submit="handleSubmit()">
+  <input type="hidden" ng-model="record.id">
+<div class="container view-record-container">
+  <div class="row">
+    <div class="col-md-3 header-buttons">
+      <button type="submit" ng-disabled="yhaForm.$invalid" class="btn btn-sm btn-success">
+          <span class="glyphicon glyphicon-ok"></span> Save Record
+      </button>
+        <li class="dropdown validation-dropdown" ng-show="yhaForm.$invalid">
+            <a class="btn btn-danger btn-sm dropdown-toggle">
+              <span class="glyphicon glyphicon-zoom-in"></span>
+            </a>
+            <ul class="dropdown-menu validation-box">
+                <li ng-show="yhaForm.lastName.$error.required">
+                    Last name is required.
+                </li>
+                <li ng-show="yhaForm.firstName.$error.required">
+                    First name is required.
+                </li>
+                <li ng-show="yhaForm.memberNum.$error.required">
+                    Record number is required.
+                </li>
+            </ul>
+        </li>
+    </div>
+    <div class="col-md-6 partial-title">
+      <span class="partial-title-label">{{ pageDetails.action }} Record</span> <span ng-show="pageDetails.show">#{{record.memberNum}}</span>
+    </div>
+    <div class="col-md-3 header-buttons">
+      <a href="" ng-click="goBack()" class="btn btn-danger btn-sm btn-block">
+          <span class="glyphicon glyphicon-minus-sign"></span> Discard Changes
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="fieldset">
+        <div class="legend">Record Details</div>
+          <div class="form odd">
+              <div class="field-label">Record Number</div>
+              <div class="field-form-value">
+                  <input type="text" autofocus class="form-control input-sm" ng-model="record.memberNum" name="memberNum" required popover="Record Number is required!" popover-placement="top" popover-trigger="{{{true: 'focus', false: 'never'}[yhaForm.memberNum.$invalid]}}">
+              </div>
+          </div>
+	<div class="form odd">
+	  <div class="field-label">Last Name</div>
+      <div class="field-form-value">
+        <input type="text" class="form-control input-sm" ng-model="record.lastName" name="lastName" required popover="Last name is required!" popover-placement="top" popover-trigger="{{{true: 'focus', false: 'never'}[yhaForm.lastName.$invalid]}}">
+      </div>
+    </div>
+    <div class="form">
+	  <div class="field-label">First Name</div>
+          <div class="field-form-value"><input type="text" class="form-control input-sm" name="firstName" ng-model="record.firstName" required popover="First name is required!" popover-placement="top" popover-trigger="{{{true: 'focus', false: 'never'}[yhaForm.firstName.$invalid]}}"></div>
+        </div>
+        <div class="form odd">
+	  <div class="field-label">Middle Name</div>
+          <div class="field-form-value"><input type="text" class="form-control input-sm" ng-model="record.middleName"></div>
+        </div>
+        <div class="form">
+	  <div class="field-label">DOB</div>
+          <div class="field-form-value">
+              <div ng-controller="DobController">
+                  <div class="pull-left">
+                    <input type="text" name="dob" is-open="opened" show-weeks="false" datepicker-popup="dd MMM yyyy" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" class="form-control input-sm" ng-model="record.dob">
+                  </div>
+                  <div class="pull-right calendar-button-spacer">
+                      <a href="" class="btn btn-primary btn-sm" ng-click="openDatepicker()">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="legend">Address</div>
+	      <div class="form odd">
+	        <div class="field-label">Street # and Name</div>
+            <div class="field-form-value"><input type="text" class="form-control input-sm" ng-model="record.streetAddr"></div>
+        </div>
+        <div class="form">
+	      <div class="field-label">City</div>
+          <div class="field-form-value"><input type="text" class="form-control input-sm" ng-model="record.cityAddr"></div>
+        </div>
+        <div class="form odd">
+	      <div class="field-label">State</div>
+          <div class="field-form-value">
+              <select class="form-control input-sm" ng-model="record.stateAddr" ng-options="i.value as i.label for i in usStates">
+              </select>
+          </div>
+        </div>
+        <div class="form">
+	      <div class="field-label">Zip</div>
+          <div class="field-form-value"><input type="text" class="form-control input-sm" name="zipAddr" ng-model="record.zipAddr"></div>
+        </div>
+        <div class="form odd">
+	      <div class="field-label">Zip + 4</div>
+          <div class="field-form-value"><input type="text" class="form-control input-sm" name="zip4Addr" ng-model="record.zip4Addr"></div>
+        </div>
+        <div class="form">
+          <div class="field-label">Bad Address</div>
+          <div class="field-form-value">
+              <input type="checkbox" ng-model="record.isBadAddress" ng-true-value="Yes" ng-false-value="No">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="fieldset">
+        <div class="legend">Notes</div>
+        <div class="form-notes">
+          <div class="form odd">
+            <textarea class="form-control input-sm" ng-model="record.notes" ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-2 header-buttons">
+          <button type="submit" ng-disabled="yhaForm.$invalid" class="btn btn-sm btn-success">
+              <span class="glyphicon glyphicon-ok"></span> Save Record
+          </button>
+      </div>
+      <div class="col-md-8 partial-title">
+          <span class="partial-title-label">{{ pageDetails.action }} Record</span> <span ng-show="pageDetails.show">#{{record.memberNum}}</span>
+      </div>
+      <div class="col-md-2 header-buttons">
+          <a href="" ng-click="goBack()" class="btn btn-danger btn-sm btn-block">
+              <span class="glyphicon glyphicon-minus-sign"></span> Discard Changes
+          </a>
+      </div>
+  </div>
+</div>
+</form>

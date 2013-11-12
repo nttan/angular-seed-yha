@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 partial-title-queue">
+      Dashboard
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="db-cell db-cell-lg">
+        <div class="number number-xlg number-total">{{ dashboard.recordsTotal }}</div>
+	    <div class="db-label">
+	      <span class="members-total-label">
+            <ng-pluralize count="dashboard.recordsTotal" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+	      </span> <span class="db-label-total">Total</span>
+	    </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="db-cell db-cell-lg">
+
+          <div class="number number-xlg db-label-week">{{ dashboard.dummyValue }}</div>
+          <div class="db-label">
+            <span class="members-total-label">
+              <span class="db-label-week">YHA</span> <ng-pluralize count="dashboard.dummyValue" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+            </span>
+          </div>
+
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="db-cell db-cell-lg">
+
+          <div class="number number-xlg number-year">{{ dashboard.dummyValue }}</div>
+          <div class="db-label">
+            <span class="members-total-label">
+              <span class="db-label-year">YHA</span> <ng-pluralize count="dashboard.dummyValue" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+            </span>
+          </div>
+          <br/>
+          <div class="number number-tiny number-year">{{ dashboard.dummyValue }}</div>
+            <div class="db-label">
+              <span class="members-total-label">
+                <span class="db-label-year">YHA</span> <ng-pluralize count="dashboard.dummyValue" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+              </span>
+            </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="db-cell db-cell-sm">
+        <div class="number number-md number-overdue">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+          <span class="members-total-label db-label-sm">
+            <ng-pluralize count="dashboard.dummyValue" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+          </span> <span class="db-label-overdue db-label-sm">YHA</span>
+        </div>
+        <div class="db-label-sm">
+          <span class="members-total-label">YHA</span> <span class="db-label-overdue">YHA</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="db-cell db-cell-sm">
+        <div class="number number-md number-overdue">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+            <ng-pluralize count="dashboard.dummyValue" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+        </div>
+        <br/>
+        <div class="db-btn-group" ng-show="false">
+          <a href="#/queue" class="btn btn-danger btn-xs">Records</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="db-cell db-cell-sm">
+        <div class="number number-md db-label-week">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+            <ng-pluralize count="dashboard.dummyValue" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+        </div>
+	    <div class="db-label db-label-week">YHA</div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="db-cell db-cell-sm">
+        <div class="number number-sm" ng-class="dashboard.dummyValue">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+          YHA <span class="number-week">YHA</span>
+        </div>
+        <br/>
+        <div class="number number-sm" ng-class="dashboard.dummyValue">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+          YHA <span class="number-week">YHA</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="db-cell db-cell-sm">
+        <div class="number number-md db-label-year">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+          <ng-pluralize count="dashboard.dummyValue" when="{'1':'Record','other':'Records'}"></ng-pluralize>
+        </div>
+        <div class="db-label db-label-year">YHA</div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="db-cell db-cell-sm">
+        <div class="number number-sm" ng-class="dashboard.dummyValue">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+          YHA <span class="number-year">YHA</span>
+        </div>
+        <br/>
+        <div class="number number-sm" ng-class="dashboard.dummyValue">{{ dashboard.dummyValue }}</div>
+        <div class="db-label-sm">
+          YHA <span class="number-year">YHA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<form name="dropdownOptionForm" novalidate ng-submit="handleSubmit()">
+<input type="hidden" ng-model="option.dropdownName" name="dropdownName">
+<input type="hidden" ng-model="option.id" name="id">
+<div class="container view-record-container">
+<div class="row">
+    <div class="col-md-2 header-buttons">
+        <button type="submit" ng-disabled="dropdownOptionForm.$invalid" class="btn btn-sm btn-success">
+            <span class="glyphicon glyphicon-ok"></span> Save
+        </button>
+        <li class="dropdown validation-dropdown" ng-show="dropdownOptionForm.$invalid">
+            <a class="btn btn-danger btn-sm dropdown-toggle">
+                <span class="glyphicon glyphicon-zoom-in"></span>
+            </a>
+            <ul class="dropdown-menu validation-box">
+                <li ng-show="dropdownOptionForm.value.$error.required">
+                    Value is required.
+                </li>
+                <li ng-show="dropdownOptionForm.label.$error.required">
+                    Label is required.
+                </li>
+                <li ng-show="dropdownOptionForm.humanLabel.$error.required">
+                    Human Label is required.
+                </li>
+            </ul>
+        </li>
+    </div>
+    <div class="col-md-8 partial-title">
+        <span class="partial-title-label">{{ pageDetails.action }} </span> <span ng-show="pageDetails.show">{{option.dropdownName | camelCaseToHuman | capitalizeWords}}</span>
+    </div>
+    <div class="col-md-2 header-buttons">
+        <a href="" ng-click="goBack()" class="btn btn-danger btn-sm btn-block">
+            <span class="glyphicon glyphicon-minus-sign"></span> Discard Changes
+        </a>
+    </div>
+</div>
+<div class="row">
+<div class="col-md-6">
+    <div class="fieldset">
+        <div class="legend">New Dropdown Entry</div>
+        <div class="form odd">
+            <div class="field-label">Label</div>
+            <div class="field-form-value">
+                <input type="text" autofocus class="form-control input-sm" ng-model="option.label" name="label" required popover="Label is required!" popover-placement="top" popover-trigger="{{{true: 'focus', false: 'never'}[dropdownOptionForm.label.$invalid]}}">
+            </div>
+        </div>
+        <div class="form">
+            <div class="field-label">Value</div>
+            <div class="field-form-value">
+                <input type="text" class="form-control input-sm" name="value" ng-model="option.value" required popover="Value is required!" popover-placement="top" popover-trigger="{{{true: 'focus', false: 'never'}[dropdownOptionForm.value.$invalid]}}">
+            </div>
+        </div>
+        <div class="form odd">
+            <div class="field-label">Human Label</div>
+            <div class="field-form-value">
+                <input type="text" class="form-control input-sm" ng-model="option.humanLabel" name="humanLabel" required popover="Human label is required!" popover-placement="top" popover-trigger="{{{true: 'focus', false: 'never'}[dropdownOptionForm.humanLabel.$invalid]}}">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    &nbsp;
+</div>
+</div>
+</div>
+</form>

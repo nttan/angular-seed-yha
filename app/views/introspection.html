@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 partial-title-queue">
+            Introspection
+        </div>
+    </div>
+    <div class="row" style="color:#ffffff">
+        <div ng-repeat="(k,v) in introspection">
+            Key: {{ k }}
+            <br/>
+            <div ng-repeat="(x,y) in v">
+               {{ x }}:
+               <br/>
+               {{ y }}
+               <br/>
+               <br/>
+            </div>
+        </div>
+    </div>
+</div>

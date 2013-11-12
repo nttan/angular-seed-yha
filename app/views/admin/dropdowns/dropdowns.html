@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 partial-title-queue">
+            Dropdown Management
+        </div>
+    </div>
+    <div class="row" style="padding-bottom: 20px;" ng-repeat="cols in rows">
+        <div class="col-md-3" ng-repeat="col in cols">
+            <div class="db-cell db-cell-sm">
+                <div class="number number-xsm number-total" style="padding-top: 10px">{{ col.name | camelCaseToHuman | capitalizeWords }}</div>
+                <div class="number number-xsm" style="padding:4px 0px 24px 0px;">
+                    <span class="number-week">{{ col.total }}</span> <span class="number-total">entries</span>
+                </div>
+                <div style="text-align: center">
+                    <a href="#/admin/dropdowns/view/{{ col.name }}" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-edit"></span> Manage List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

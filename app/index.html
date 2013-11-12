@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="YHA">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>YHA Seed App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="scripts/vendor/bootstrap-3.0.0/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="styles/app-styles.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="scripts/vendor/html5shiv.js"></script>
+      <script src="scripts/vendor/respond.min.js"></script>
+      <![endif]-->
+
+    <script src="scripts/vendor/jquery-1.10.2.min.js"></script>
+
+    <script>
+       $(function() {
+	     setColumnHeights();
+       });
+
+       function setColumnHeights() {
+         //#wrap is the div that wraps the entire page's content
+         var wrapHeight = $("#wrap").height();
+         var wrapHeightPx = wrapHeight + "px";
+
+	 //.footer - self explanatory
+         var footerHeight = $(".footer").height();
+         var footerHeightPx = $(".footer").height() + "px";
+
+         //we don't want the height of our columns bleeding over into the footer due to border/padding/margin issues
+         var paddingOffset = 10;
+
+         //max height for columns
+         var maxColumnHeight = wrapHeight - footerHeight - paddingOffset;
+         var maxColumnHeightPx = maxColumnHeight + "px";
+
+         $("#main-content-container").css("height", wrapHeightPx);
+         $("#sidebar-container").css("height", maxColumnHeightPx);
+         $("#sidebar").css("height", maxColumnHeightPx);
+         $("#view-container").css("height", maxColumnHeightPx);
+         $("#view").css("height", maxColumnHeightPx);
+       }
+    </script>
+
+  </head>
+
+  <body>
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-dark navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">YHA</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+	          <li><a href="#/dashboard">Dashboard</a></li>
+              <li><a href="#/queue">Records List</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Menu <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Pages</li>
+                  <li><a href="#/dashboard">Dashboard</a></li>
+                  <li class="dropdown-header">Lists</li>
+                  <li><a href="#/queue">Records List</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <!-- Begin page content -->
+      <div id="main-content-container" class="container">
+        <div class="row">
+	  <div id="sidebar-container" class="col-md-2">
+            <div id="sidebar">
+              <div class="fieldset">
+                <a href="#/new" class="btn btn-primary btn-sm btn-block">
+                    <span class="glyphicon glyphicon-plus"></span> Add New Record
+                </a>
+              </div>
+              <div class="fieldset-sidebar-form">
+                <form name="yhaSearchForm" ng-controller="SearchController" ng-submit="handleSearch()">
+                    <div class="legend-sidebar-form">Quick Search</div>
+                    <label class="sidebar-search-label">Record Number</label>
+                    <input type="text" class="form-control input-xs" name="memberNum" ng-model="search.memberNum">
+                    <label class="sidebar-search-label">Last Name</label>
+                    <input type="text" class="form-control input-xs" name="lastName" ng-model="search.lastName">
+                    <label class="sidebar-search-label">First Name</label>
+                    <input type="text" class="form-control input-xs" name="firstName" ng-model="search.firstName">
+                    <label class="sidebar-search-label">State</label>
+                    <select class="form-control input-xs" name="stateAddr" ng-model="search.stateAddr" ng-options="i.value as i.label for i in usStates">
+                    </select>
+                    <br/>
+                    <button type="submit" class="btn btn-sm btn-success btn-block">
+                        <span class="glyphicon glyphicon-zoom-in"></span> Search
+                    </button>
+                    <button type="button" class="btn btn-sm btn-info btn-block">
+                        <span class="glyphicon glyphicon-zoom-in"></span> Advanced Search
+                    </button>
+                </form>
+              </div>
+            </div>
+	  </div>
+	  <div id="view-container" class="col-md-10">
+            <div id="view">
+              <div ng-controller="AlertsController">
+                <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+              </div>
+	          <div ng-view></div>
+            </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div class="footer footer-dark">
+      <div class="container">
+        <p class="text-muted credit">&nbsp;</p>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="scripts/vendor/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script src="scripts/vendor/angular-1.0.7.min.js"></script>
+    <script src="scripts/vendor/ui-bootstrap-0.6.0.min.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/controllers/controllers.js"></script>
+    <script src="scripts/filters/filters.js"></script>
+    <script src="scripts/services/services.js"></script>
+    <script src="scripts/directives/directives.js"></script>
+
+  </body>
+</html>

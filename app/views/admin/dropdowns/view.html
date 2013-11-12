@@ -1,0 +1,73 @@
+<div class="container view-record-container">
+    <div class="row">
+        <div class="col-md-2 header-buttons">
+            <a href="#/admin/dropdowns/new/{{ dropdown.name }}" class="btn btn-primary btn-sm btn-block">
+                <span class="glyphicon glyphicon-plus"></span> Add Item
+            </a>
+        </div>
+        <div class="col-md-8 partial-title">
+            <span class="partial-title-label">{{ pageDetails.action }} </span> {{dropdown.name | camelCaseToHuman | capitalizeWords}}
+        </div>
+        <div class="col-md-2 header-buttons">
+            <a href="" ng-click="goBack()" class="btn btn-danger btn-sm btn-block">
+                <span class="glyphicon glyphicon-minus-sign"></span> Go Back
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="container queue-header">
+            <div class="row queue-header">
+                <div class="col-md-1 queue-header-cell">
+                    ID
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    Human Label
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    Label
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    Value
+                </div>
+                <div class="col-md-3 queue-header-cell">
+                    Total Records
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    Actions
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container queue-container" data-queue-resize data-resize-to="view">
+            <div class="row queue-row" ng-repeat="opt in dropdown.options" ng-class-odd="'queue-odd-row'" ng-class-even="'queue-even-row'">
+                <div class="col-md-1 queue-header-cell">
+                    {{ opt.id }}
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    {{ opt.humanLabel }}
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    {{ opt.label }}
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    {{ opt.value }}
+                </div>
+                <div class="col-md-3 queue-header-cell">
+                    {{ opt.total }}
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    <button ng-click="handleDropdownDelete(dropdown.name, opt.id)" class="btn btn-sm btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </button>
+                    <a href="#/admin/dropdowns/edit/{{ dropdown.name }}/{{ opt.id }}" class="btn btn-warning btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<ul class="dropdown-menu datepicker-popup" ng-style="{display: (isOpen && 'block') || 'none', top: position.top+'px', left: position.left+'px'}" class="dropdown-menu">
+    <li ng-transclude></li>
+    <li class="divider"></li>
+    <li class="datepicker-ctrl-buttons">
+		<span class="btn-group">
+			<button class="btn btn-xs btn-primary" ng-click="today()">
+                <span class="glyphicon glyphicon-calendar"></span> Today
+            </button>
+		</span>
+        <button class="btn btn-xs btn-danger pull-right" ng-click="isOpen = false">
+            <span class="glyphicon glyphicon-minus-sign"></span> Close
+        </button>
+    </li>
+</ul>

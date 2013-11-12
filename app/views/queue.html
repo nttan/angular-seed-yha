@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 partial-title-queue">
+      Records List
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="container queue-header">
+            <div class="row queue-header">
+                <div class="col-md-2 queue-header-cell">
+                    Record#
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    Name
+                </div>
+                <div class="col-md-1 queue-header-cell">
+                    DOB
+                </div>
+                <div class="col-md-3 queue-header-cell">
+                    Address
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    Field 42
+                </div>
+                <div class="col-md-2 queue-header-cell">
+                    Field 43
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container queue-container" data-queue-resize data-resize-to="view">
+            <div class="row queue-row" ng-repeat="record in records" ng-class-odd="'queue-odd-row'" ng-class-even="'queue-even-row'" ng-click="handleRowClick(record.id)">
+                <div class="col-md-2 queue-field-cell">
+                    {{ record.memberNum }}
+                </div>
+                <div class="col-md-2 queue-field-cell">
+                    <a href="#/view/{{ record.id }}">{{ record.lastName }}, {{ record.firstName }} {{ record.middleName }}</a>
+                </div>
+                <div class="col-md-1 queue-field-cell">
+                    <span class="sm-date">{{ record.dob | stringToDate | date:'dd MMM yyyy' }}</span>
+                </div>
+                <div class="col-md-3 queue-field-cell">
+                    {{ record.streetAddr }}
+                    <br/>
+                    {{ record.cityAddr }}, {{ record.stateAddr }} {{ record.zipAddr }}-{{ record.zip4Addr }}
+                </div>
+                <div class="col-md-2 queue-field-cell">
+                   Field 42
+                </div>
+                <div class="col-md-2 queue-field-cell">
+                    Field 43
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container queue-footer">
+            <div class="row">
+                <div class="col-md-2" style="text-align:left">
+                   Showing <span>{{ pagerStart }} - {{ pagerEnd }}</span>
+                </div>
+                <div class="col-md-8" style="text-align:center">
+                   <pagination total-items="totalRecords" boundary-links="true" max-size="5" page="currentPage" items-per-page="recordsPerPage" on-select-page="selectPage(page)"></pagination>
+                </div>
+                <div class="col-md-2">
+                    <a href="#/new" class="btn btn-primary btn-xs">
+                        <span class="glyphicon glyphicon-plus"></span> Add New Record
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

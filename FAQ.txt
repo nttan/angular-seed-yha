@@ -1,0 +1,13 @@
+Starting a nodejs web server
+============================
+node <filename>
+
+
+Cannot find module 'express'
+============================
+You need to install Express locally into the context of your application (node_modules folder):
+
+$ npm install express
+The reason for this is that applications always look in their local context for any dependencies. The global installation is only for setting up system-wide available binaries, such as unit test runners or bootstrappers or things like that.
+
+With Express, when you install it globally, you get an express binary that can bootstrap an application for you.

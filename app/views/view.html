@@ -1,0 +1,52 @@
+<div class="container view-record-container">
+  <div class="row">
+    <div class="col-md-2 header-buttons">
+      <a href="#/edit/{{ record.id }}" class="btn btn-warning btn-sm">
+          <span class="glyphicon glyphicon-pencil"></span> Edit Record
+      </a>
+    </div>
+    <div class="col-md-8 partial-title">
+      <span class="partial-title-label">{{ pageDetails.action }} Record</span> #{{record.memberNum}}
+    </div>
+    <div class="col-md-2 header-buttons">
+        <button ng-click="handleRecordDelete(record.id)" class="btn btn-sm btn-danger btn-block">
+            <span class="glyphicon glyphicon-trash"></span> Delete Record
+        </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="fieldset">
+        <div class="legend">Member Name/Address</div>
+	    <div class="odd">
+	      <div class="field-label">Name</div>
+          <div class="field-value">{{ record.lastName }}, {{ record.firstName }} {{ record.middleName }}</div>
+        </div>
+        <div class="address">
+	      <div class="field-label">Address<div class="bad-address" ng-show="record.isBadAddress">Marked as a bad address</div></div>
+          <div class="field-value">
+            {{ record.streetAddr }}
+            <br/>
+            {{ record.cityAddr }}, {{ record.stateAddr }} {{ record.zipAddr }}-{{ record.zip4Addr }}
+          </div>
+        </div>
+        <div class="odd">
+	      <div class="field-label">DOB</div>
+          <div class="field-value">
+            {{ record.dob | stringToDate | date:'dd MMM yyyy' }}
+          </div>
+        </div>
+      </div>
+	</div>
+    <div class="col-md-6">
+      <div class="fieldset">
+        <div class="legend">Notes</div>
+        <div class="notes">
+          <div class="odd">
+            {{ record.notes }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
